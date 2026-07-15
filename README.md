@@ -4,12 +4,12 @@ A two layer LSTM model and implementation to perform regression modeling of synt
 
 ## To install
 ```
-conda env create -f rna_regression_baselines.yml \
+conda env create -f rna_regression_baselines.yml
 conda activate rna_regression_baselines
 ```
 
 ## Datasets
-One sequence text file containing a list of strings with letters, and a label text file containing z-score values. 
+One sequence text file containing a list of strings with letters A,T,C,G, and a label text file containing z-score values. 
 
 ## To run
 ```
