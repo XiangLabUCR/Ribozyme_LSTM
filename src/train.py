@@ -39,15 +39,6 @@ X, y = preprocess_dataset(
     "./datasets/cdGII_labels.txt"
 )
 
-# # train/validation split
-# X_train, X_valid, y_train, y_valid = train_test_split(
-#     X,
-#     y,
-#     test_size=0.25,
-#     random_state=42,
-#     shuffle=False
-# )
-
 # Generate shuffled indices
 idx = np.random.permutation(X.shape[0])
 
@@ -90,37 +81,6 @@ valid_dataset = TensorDataset(X_valid_tensor, y_valid_tensor)
 train_loader = DataLoader(train_dataset, batch_size=512, shuffle=True)
 valid_loader = DataLoader(valid_dataset, batch_size=512, shuffle=False)
 
-
-# # tensors
-# X_train = torch.tensor(
-#     X_train,
-#     dtype=torch.float32
-# )
-
-# y_train = torch.tensor(
-#     y_train,
-#     dtype=torch.float32
-# ).unsqueeze(1)
-
-
-# X_valid = torch.tensor(
-#     X_valid,
-#     dtype=torch.float32
-# )
-# y_valid = torch.tensor(
-#     y_valid,
-#     dtype=torch.float32
-# ).unsqueeze(1)
-
-# train_loader = DataLoader(
-#     TensorDataset(X_train,y_train),
-#     batch_size=512,
-#     shuffle=True
-# )
-# valid_loader = DataLoader(
-#     TensorDataset(X_valid,y_valid),
-#     batch_size=512
-# )
 
 # model
 model = LSTMModel(
