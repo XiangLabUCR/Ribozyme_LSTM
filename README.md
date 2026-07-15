@@ -8,13 +8,6 @@ conda env create -f rna_regression_baselines.yml \
 conda activate rna_regression_baselines
 ```
 
-## To add to jupyter notebook kernel
-```
-python -m ipykernel install --user \
-    --name rna_regression_baselines \
-    --display-name "rna_regression_baselines"
-```
-
 ## Datasets
 One sequence text file containing a list of strings with letters, and a label text file containing z-score values. 
 
@@ -25,4 +18,11 @@ python -m src.train
 ## To evaluate
 ```
 python -m src.evaluate
+```
+
+### If desired to run within a jupyter notebook, add envirnonment to jupyter notebook kernel
+```
+python -m ipykernel install --user \
+    --name rna_regression_baselines \
+    --display-name "rna_regression_baselines"
 ```
