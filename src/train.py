@@ -7,6 +7,8 @@ from src.preprocess import preprocess_dataset
 from src.model import LSTMModel
 from src.train_utils import train_model
 import numpy as np
+import os
+os.makedirs("./models", exist_ok=True)
 
 device = torch.device(
     "cuda" if torch.cuda.is_available()
@@ -54,7 +56,7 @@ X_shuffled = X[idx]
 y_shuffled = y_standardized[idx]
 
 
-train_size = int(0.75 * len(X_shuffled))
+train_size = int(0.85 * len(X_shuffled))
 X_train, X_test = X_shuffled[:train_size], X_shuffled[train_size:]
 y_train, y_test = y_shuffled[:train_size], y_shuffled[train_size:]
 
@@ -85,14 +87,14 @@ valid_loader = DataLoader(valid_dataset, batch_size=512, shuffle=False)
 # model
 model = LSTMModel(
     input_size=113,
-    hidden_size=256,
+    hidden_size=512,
     output_size=1
 ).to(device)
 
 criterion = nn.MSELoss()
 optimizer = optim.Adam(
     model.parameters(),
-    lr=1e-5
+    lr=1e-4
 )
 
 train_model(
@@ -101,7 +103,7 @@ train_model(
     valid_loader,
     criterion,
     optimizer,
-    epochs=1000,
-    patience=100,
+    epochs=100,
+    patience=20,
     save_path="./models/best_model.pt"
 )
