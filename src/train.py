@@ -103,7 +103,7 @@ train_model(
     valid_loader,
     criterion,
     optimizer,
-    epochs=100,
+    epochs=500,
     patience=20,
     save_path="./models/best_model.pt"
 )
