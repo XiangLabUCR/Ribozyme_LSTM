@@ -1,4 +1,4 @@
-name: lstm_baseline
+name: rna_regression_baselines
 
 channels:
   - pytorch

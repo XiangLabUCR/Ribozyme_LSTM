@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 
 model = LSTMModel(
     input_size=113,
-    hidden_size=256,
+    hidden_size=512,
     output_size=1
 )
 
